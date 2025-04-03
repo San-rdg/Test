@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Everything Lanka - Wildlife Spotting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2C2C2C;
+            text-align: center;
+            color: white;
+        }
+        header {
+            background: #170269;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .nav {
+            background: #1E6091;
+            padding: 15px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        .content {
+            width: 80%;
+            margin: 20px auto;
+            background: black;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: left;
+            font-size: 20px;
+        }
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #1E6091;
+            color: white;
+        }
+        #sightings {
+            margin-top: 20px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i>Everything Lanka</i></h1>
+    </header>
+
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="EYWK.html">Everything You Wanna Know</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="districts.html">Districts</a>
+        <a href="what-s new.html">What's New</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <div class="content">
+        <h2>🦜 Wildlife Spotting Tracker - Sri Lanka 🐘</h2>
+        <p>Select an animal to see the best locations and seasons to spot it.</p>
+
+        <select id="animalSelect">
+            <option value="">-- Select an Animal --</option>
+            <option value="Elephant">🐘 Elephant</option>
+            <option value="Leopard">🐆 Leopard</option>
+            <option value="Blue Whale">🐋 Blue Whale</option>
+            <option value="Sloth Bear">🐻 Sloth Bear</option>
+            <option value="Flamingo">🦩 Flamingo</option>
+            <option value="Sambar Deer">🦌 Sambar Deer</option>
+            <option value="Purple-faced Langur">🐒 Purple-faced Langur</option>
+            <option value="Saltwater Crocodile">🐊 Saltwater Crocodile</option>
+            <option value="Green Pit Viper">🐍 Green Pit Viper</option>
+            <option value="Peacock">🦚 Peacock</option>
+        </select>
+        <button onclick="searchWildlife()">Search</button>
+
+        <div id="wildlifeInfo"></div>
+
+        <h2>📍 Recent Sightings</h2>
+        <ul id="sightings">
+            <li>🦩 Flamingos spotted in Bundala National Park this morning!</li>
+            <li>🐆 Leopard seen at Yala National Park yesterday evening.</li>
+            <li>🐋 Blue whales spotted near Mirissa this week.</li>
+        </ul>
+    </div>
+
+    <script>
+        const wildlifeData = {
+            "Elephant": { location: "Udawalawe National Park", season: "Year-round, best in dry season (June–Sept)", bestTime: "Morning & late afternoon" },
+            "Leopard": { location: "Yala National Park", season: "Feb–July (dry season)", bestTime: "Early morning & dusk" },
+            "Blue Whale": { location: "Mirissa", season: "Nov–April", bestTime: "Morning boat tours" },
+            "Sloth Bear": { location: "Wilpattu National Park", season: "May–July", bestTime: "Early morning" },
+            "Flamingo": { location: "Bundala National Park", season: "Nov–March (migration season)", bestTime: "Morning & sunset" },
+            "Sambar Deer": { location: "Horton Plains National Park", season: "Year-round", bestTime: "Dawn & dusk" },
+            "Purple-faced Langur": { location: "Sinharaja Rainforest", season: "Year-round", bestTime: "Morning" },
+            "Saltwater Crocodile": { location: "Muthurajawela Wetlands", season: "Year-round", bestTime: "Afternoon" },
+            "Green Pit Viper": { location: "Knuckles Mountain Range", season: "Year-round", bestTime: "Nighttime" },
+            "Peacock": { location: "Yala National Park", season: "Year-round", bestTime: "Morning & late afternoon" }
+        };
+
+        function searchWildlife() {
+            const animal = document.getElementById('animalSelect').value;
+            const info = wildlifeData[animal];
+
+            if (info) {
+                document.getElementById('wildlifeInfo').innerHTML = `
+                    <h2>🦁 ${animal} Spotting Info</h2>
+                    <table>
+                        <tr><th>📍 Best Location</th><td>${info.location}</td></tr>
+                        <tr><th>🗓 Best Season</th><td>${info.season}</td></tr>
+                        <tr><th>⏰ Best Time</th><td>${info.bestTime}</td></tr>
+                    </table>
+                `;
+            } else {
+                document.getElementById('wildlifeInfo').innerHTML = `<p>⚠️ Please select an animal.</p>`;
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+

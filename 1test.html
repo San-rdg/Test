@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Every Thing Sri Lanka | Sinhala & Tamil New Year</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #2C2C2C;
+            text-align: center;
+            overflow-x: hidden;
+        }
+        header {
+            background: #D32F2F;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .nav {
+            background: #1E6091;
+            padding: 15px;
+        }
+        .nav a {
+            color: white;
+            text-decoration: none;
+            margin: 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .nav a:hover {
+            text-decoration: underline;
+        }
+        .banner {
+            background: url('https://source.unsplash.com/1600x900/?sri-lanka') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: yellow;
+            border-radius: 50%;
+            opacity: 0;
+            animation: explode 1.5s ease-out infinite;
+        }
+        @keyframes explode {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(3); opacity: 0.8; }
+            100% { transform: scale(5); opacity: 0; }
+        }
+        .falling-flowers {
+            position: absolute;
+            top: -10px;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+        }
+        .celebration-text {
+            font-size: 28px;
+            color: #FFD700;
+            animation: bounce 1s infinite alternate;
+        }
+        @keyframes bounce {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+        .section {
+            padding: 40px;
+        }
+        .footer {
+            background: #0c3e72;
+            color: white;
+            padding: 10px;
+            font-size: 14px;
+        }
+        .content {
+            width: 80%;
+            margin: 20px auto;
+            background: black;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 30px;
+        }
+        .tit {
+            font-size: 5ch;
+            color: white;
+            font-family: Arial;
+            background-color: #3d951c;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1><b>Every Thing Sri Lanka</b></h1>
+        <p><i>Offering you the best insider knowledge...</i></p>
+        <p class="celebration-text">🎉 Happy Sinhala & Tamil New Year! 🎉</p>
+    </header>
+
+    <div class="nav">
+        <a href="index.html">Home</a>
+        <a href="EYWK.html">Everything You Wanna Know</a>
+        <a href="destinations.html">Destinations</a>
+        <a href="districts.html">Districts</a>
+        <a href="what-s new.html">What's New</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact Us</a>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <img src="Ever.gif" alt="Sinhala Tamil New Year" style="width:100%">
+        </div>
+    </div>
+
+    <div class="banner">
+        <h2>Welcome to Sri Lanka</h2>
+    </div>
+
+    <div class="content">
+        <p>Welcome to Sri Lanka, the pearl of the Indian Ocean. We assure you that you will have the time of your life in paradise. <br>
+         And this website is here to help you to know everything there is to know when traveling in Sri Lanka. <br>
+         We hope to help you have an amazing visit!
+        </p>
+    </div>
+
+    <div class="tit">
+        <u>Experience the Beauty</u>
+    </div>
+    
+    <div class="row">
+        <div class="column"><img src="2.jpg" alt="Bridge" style="width:100%"></div>
+        <div class="column"><img src="3.jpg" alt="Train" style="width:100%"></div>
+        <div class="column"><img src="4.jpg" alt="Beach" style="width:100%"></div>
+        <div class="column"><img src="5.jpg" alt="Bridge" style="width:100%"></div>
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Discover Sri Lanka | All Rights Reserved
+    </div>
+
+    <script>
+        // Fireworks Effect
+        function createFirework() {
+            const firework = document.createElement("div");
+            firework.classList.add("firework");
+            firework.style.left = Math.random() * window.innerWidth + "px";
+            firework.style.top = Math.random() * 400 + "px"; // Inside the banner
+            firework.style.backgroundColor = getRandomColor();
+            document.body.appendChild(firework);
+            setTimeout(() => firework.remove(), 1500);
+        }
+        function getRandomColor() {
+            const colors = ["yellow", "red", "blue", "green", "purple", "orange"];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+        setInterval(createFirework, 500); // Launch a firework every 500ms
+
+        // Falling flowers effect
+        function createFlower() {
+            const flower = document.createElement("div");
+            flower.innerHTML = "🌸";
+            flower.classList.add("falling-flowers");
+            flower.style.left = Math.random() * window.innerWidth + "px";
+            flower.style.animationDuration = Math.random() * 3 + 2 + "s";
+            flower.style.fontSize = Math.random() * 20 + 10 + "px";
+            document.body.appendChild(flower);
+            setTimeout(() => flower.remove(), 5000);
+        }
+        setInterval(createFlower, 300);
+    </script>
+
+</body>
+</html>
+
