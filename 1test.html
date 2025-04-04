@@ -16,69 +16,72 @@
         header {
             background: #D32F2F;
             color: white;
-            padding: 20px;
-            font-size: 24px;
+            padding: 15px;
+            font-size: 22px;
         }
         .nav {
             background: #1E6091;
             padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
         .nav a {
             color: white;
             text-decoration: none;
-            margin: 15px;
-            font-size: 18px;
+            margin: 10px;
+            font-size: 16px;
             font-weight: bold;
         }
         .nav a:hover {
             text-decoration: underline;
         }
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: white;
+        }
+        .nav-links {
+            display: flex;
+        }
         .banner {
             background: url('https://source.unsplash.com/1600x900/?sri-lanka') no-repeat center center/cover;
-            height: 400px;
+            height: 300px;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 36px;
+            font-size: 24px;
             font-weight: bold;
-            position: relative;
-            overflow: hidden;
         }
-        .firework {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background-color: yellow;
-            border-radius: 50%;
-            opacity: 0;
-            animation: explode 1.5s ease-out infinite;
+        .content {
+            width: 90%;
+            margin: 20px auto;
+            background: black;
+            color: white;
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 20px;
         }
-        @keyframes explode {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(3); opacity: 0.8; }
-            100% { transform: scale(5); opacity: 0; }
+        .tit {
+            font-size: 4ch;
+            color: white;
+            background-color: #3d951c;
+            padding: 10px;
+            margin: 10px 0;
         }
-        .falling-flowers {
-            position: absolute;
-            top: -10px;
-            animation: fall linear infinite;
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            padding: 10px;
         }
-        @keyframes fall {
-            0% { transform: translateY(-10px) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-        }
-        .celebration-text {
-            font-size: 28px;
-            color: #FFD700;
-            animation: bounce 1s infinite alternate;
-        }
-        @keyframes bounce {
-            from { transform: translateY(0); }
-            to { transform: translateY(-10px); }
-        }
-        .section {
-            padding: 40px;
+        .column img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 5px;
         }
         .footer {
             background: #0c3e72;
@@ -86,21 +89,29 @@
             padding: 10px;
             font-size: 14px;
         }
-        .content {
-            width: 80%;
-            margin: 20px auto;
-            background: black;
-            color: white;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-            font-size: 30px;
-        }
-        .tit {
-            font-size: 5ch;
-            color: white;
-            font-family: Arial;
-            background-color: #3d951c;
+        
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #1E6091;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                text-align: center;
+            }
+            .nav-links a {
+                padding: 10px;
+                display: block;
+            }
+            .show { display: flex; }
+            .banner { font-size: 18px; height: 200px; }
+            .content { font-size: 16px; padding: 15px; }
+            .tit { font-size: 3ch; }
         }
     </style>
 </head>
@@ -109,22 +120,18 @@
     <header>
         <h1><b>Every Thing Sri Lanka</b></h1>
         <p><i>Offering you the best insider knowledge...</i></p>
-        <p class="celebration-text">🎉 Happy Sinhala & Tamil New Year! 🎉</p>
     </header>
 
     <div class="nav">
-        <a href="index.html">Home</a>
-        <a href="EYWK.html">Everything You Wanna Know</a>
-        <a href="destinations.html">Destinations</a>
-        <a href="districts.html">Districts</a>
-        <a href="what-s new.html">What's New</a>
-        <a href="events.html">Events</a>
-        <a href="contact.html">Contact Us</a>
-    </div>
-
-    <div class="row">
-        <div class="column">
-            <img src="Ever.gif" alt="Sinhala Tamil New Year" style="width:100%">
+        <div class="menu-icon" onclick="toggleMenu()">☰</div>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="EYWK.html">Everything You Wanna Know</a>
+            <a href="destinations.html">Destinations</a>
+            <a href="districts.html">Districts</a>
+            <a href="what-s new.html">What's New</a>
+            <a href="events.html">Events</a>
+            <a href="contact.html">Contact Us</a>
         </div>
     </div>
 
@@ -134,8 +141,7 @@
 
     <div class="content">
         <p>Welcome to Sri Lanka, the pearl of the Indian Ocean. We assure you that you will have the time of your life in paradise. <br>
-         And this website is here to help you to know everything there is to know when traveling in Sri Lanka. <br>
-         We hope to help you have an amazing visit!
+         This website is here to help you explore and discover everything you need for an unforgettable visit!
         </p>
     </div>
 
@@ -144,10 +150,10 @@
     </div>
     
     <div class="row">
-        <div class="column"><img src="2.jpg" alt="Bridge" style="width:100%"></div>
-        <div class="column"><img src="3.jpg" alt="Train" style="width:100%"></div>
-        <div class="column"><img src="4.jpg" alt="Beach" style="width:100%"></div>
-        <div class="column"><img src="5.jpg" alt="Bridge" style="width:100%"></div>
+        <div class="column"><img src="2.jpg" alt="Bridge"></div>
+        <div class="column"><img src="3.jpg" alt="Train"></div>
+        <div class="column"><img src="4.jpg" alt="Beach"></div>
+        <div class="column"><img src="5.jpg" alt="Bridge"></div>
     </div>
 
     <div class="footer">
@@ -155,34 +161,10 @@
     </div>
 
     <script>
-        // Fireworks Effect
-        function createFirework() {
-            const firework = document.createElement("div");
-            firework.classList.add("firework");
-            firework.style.left = Math.random() * window.innerWidth + "px";
-            firework.style.top = Math.random() * 400 + "px"; // Inside the banner
-            firework.style.backgroundColor = getRandomColor();
-            document.body.appendChild(firework);
-            setTimeout(() => firework.remove(), 1500);
+        function toggleMenu() {
+            const navLinks = document.querySelector(".nav-links");
+            navLinks.classList.toggle("show");
         }
-        function getRandomColor() {
-            const colors = ["yellow", "red", "blue", "green", "purple", "orange"];
-            return colors[Math.floor(Math.random() * colors.length)];
-        }
-        setInterval(createFirework, 500); // Launch a firework every 500ms
-
-        // Falling flowers effect
-        function createFlower() {
-            const flower = document.createElement("div");
-            flower.innerHTML = "🌸";
-            flower.classList.add("falling-flowers");
-            flower.style.left = Math.random() * window.innerWidth + "px";
-            flower.style.animationDuration = Math.random() * 3 + 2 + "s";
-            flower.style.fontSize = Math.random() * 20 + 10 + "px";
-            document.body.appendChild(flower);
-            setTimeout(() => flower.remove(), 5000);
-        }
-        setInterval(createFlower, 300);
     </script>
 
 </body>
